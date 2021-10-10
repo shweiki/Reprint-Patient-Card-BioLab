@@ -1,17 +1,13 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.OpenApi.Models;
+using Reprint_Patient_Card_BioLab.Models;
 using Reprint_Patient_Card_BioLab.NetCore.VueCoreConnection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+
 
 namespace Reprint_Patient_Card_BioLab
 {
@@ -27,6 +23,12 @@ namespace Reprint_Patient_Card_BioLab
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            string x = Configuration.GetConnectionString("MyContext");
+            services.AddDbContext<PortOfAqabaContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetConnectionString("MyContext"));
+            });
 
             services.AddControllers();
        

@@ -1,17 +1,20 @@
 ﻿using System.Data;
 using System.Linq;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using Reprint_Patient_Card_BioLab.Models;
 
 namespace Reprint_Patient_Card_BioLab.Controllers
 {
     public class CrossingPortalController : Controller
     {
-        private PortOfAqabaContext DB = new PortOfAqabaContext();
-        [Route("CrossingPortal/GetCrossingPortal")]
+        private readonly PortOfAqabaContext DB;
+
+        public CrossingPortalController(PortOfAqabaContext context)
+        {
+            DB = context;
+        }
         [HttpGet]
+        [Route("CrossingPortal/GetCrossingPortal")]
         public IActionResult GetCrossingPortal()
         {
             var CrossingPortals = DB.CrossingPortals.ToList();
@@ -19,8 +22,8 @@ namespace Reprint_Patient_Card_BioLab.Controllers
             return Ok(CrossingPortals);
         }
 
-        [Route("CrossingPortal/GetCrossingPortalByAny")]
         [HttpGet]
+        [Route("CrossingPortal/GetCrossingPortalByAny")]
         public IActionResult GetCrossingPortalByAny(string Any)
         {
             Any.ToLower();
@@ -29,10 +32,12 @@ namespace Reprint_Patient_Card_BioLab.Controllers
 
             return Ok(CrossingPortals);
         }
+        
         [HttpPost]
         [Route("CrossingPortal/GetByListQ")]
         public IActionResult GetByListQ(int Limit, string Sort, int Page,  string Any)
         {
+            
             var CrossingPortals = DB.CrossingPortals.Where(s => (Any != null ? s.VisitJoQr.ToString().Contains(Any) || s.PatName.Contains(Any) ||  s.PatArName.ToLower().Contains(Any) || s.MobileNo.Replace("0", "").Replace(" ", "").Contains(Any.Replace("0", "").Replace(" ", "")) : true)
           ).ToList();
             CrossingPortals = (Sort == "+id" ? CrossingPortals.OrderBy(s => s.Id).ToList() : CrossingPortals.OrderByDescending(s => s.Id).ToList());
@@ -46,8 +51,9 @@ namespace Reprint_Patient_Card_BioLab.Controllers
                 }
             });
         }
-        [Route("CrossingPortal/CheckIsExist")]
+
         [HttpGet]
+        [Route("CrossingPortal/CheckIsExist")]
         public IActionResult CheckIsExist(string Name,  long VisitJoQr)
         {
             var CrossingPortal = DB.CrossingPortals.Where(m => (Name != null ? m.PatName == Name : false) || (VisitJoQr != null ? m.VisitJoQr == VisitJoQr : false) ).ToList();
@@ -76,15 +82,17 @@ namespace Reprint_Patient_Card_BioLab.Controllers
             }
             return Ok(false);
         }
-        [Route("CrossingPortal/GetById")]
+
         [HttpGet]
+        [Route("CrossingPortal/GetById")]
         public IActionResult GetById(long? Id)
         {
             var CrossingPortal = DB.CrossingPortals.Where(m => m.Id == Id).SingleOrDefault();
             return Ok(CrossingPortal);
         }
-        [Route("CrossingPortal/Edit")]
+
         [HttpPost]
+        [Route("CrossingPortal/Edit")]
         public IActionResult Edit(CrossingPortal collection)
         {
             if (ModelState.IsValid)
