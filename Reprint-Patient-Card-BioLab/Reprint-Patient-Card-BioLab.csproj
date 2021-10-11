@@ -6,6 +6,65 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="client-app\**" />
+    <Content Remove="client-app\**" />
+    <EmbeddedResource Remove="client-app\**" />
+    <None Remove="client-app\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="client-app\dist\css\app.7f80d244.css" />
+    <Content Include="client-app\dist\css\chunk-vendors.a16c4353.css" />
+    <Content Include="client-app\dist\favicon.ico" />
+    <Content Include="client-app\dist\fonts\element-icons.535877f5.woff" />
+    <Content Include="client-app\dist\fonts\element-icons.732389de.ttf" />
+    <Content Include="client-app\dist\index.html" />
+    <Content Include="client-app\package-lock.json" />
+    <Content Include="client-app\package.json" />
+    <Content Include="client-app\public\favicon.ico" />
+    <Content Include="client-app\public\index.html" />
+    <Content Include="client-app\src\assets\logo.png" />
+    <Content Include="client-app\src\directive\waves\waves.css" />
+    <Content Include="client-app\src\styles\NEOSANSARABIC-BOLD.woff" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="client-app\babel.config.js" />
+    <None Include="client-app\dist\js\app.9243a833.js" />
+    <None Include="client-app\dist\js\app.9243a833.js.map" />
+    <None Include="client-app\dist\js\chunk-vendors.30cfd2e6.js" />
+    <None Include="client-app\dist\js\chunk-vendors.30cfd2e6.js.map" />
+    <None Include="client-app\README.md" />
+    <None Include="client-app\src\api\CrossingPortal.js" />
+    <None Include="client-app\src\App.vue" />
+    <None Include="client-app\src\components\ComplexTable.vue" />
+    <None Include="client-app\src\components\Pagination\index.vue" />
+    <None Include="client-app\src\components\PrintRepot\DrawerPrint.vue" />
+    <None Include="client-app\src\components\SortOptions\index.vue" />
+    <None Include="client-app\src\directive\sticky.js" />
+    <None Include="client-app\src\directive\waves\index.js" />
+    <None Include="client-app\src\directive\waves\waves.js" />
+    <None Include="client-app\src\main.js" />
+    <None Include="client-app\src\Report\FunctionalityReport.js" />
+    <None Include="client-app\src\Report\nArabicWords.js" />
+    <None Include="client-app\src\Report\Template\PatientCard.js" />
+    <None Include="client-app\src\Report\Visualization.js" />
+    <None Include="client-app\src\styles\btn.scss" />
+    <None Include="client-app\src\styles\element-ui.scss" />
+    <None Include="client-app\src\styles\element-variables.scss" />
+    <None Include="client-app\src\styles\index.scss" />
+    <None Include="client-app\src\styles\mixin.scss" />
+    <None Include="client-app\src\styles\sidebar.scss" />
+    <None Include="client-app\src\styles\transition.scss" />
+    <None Include="client-app\src\styles\variables.scss" />
+    <None Include="client-app\src\utils\index.js" />
+    <None Include="client-app\src\utils\RequestApi.js" />
+    <None Include="client-app\src\utils\scroll-to.js" />
+    <None Include="Publish\Publish\web.config" />
+    <None Include="Publish\web.config" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.10" />
