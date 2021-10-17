@@ -7,9 +7,13 @@
 
   <ItemGroup>
     <Compile Remove="client-app\**" />
+    <Compile Remove="Publish\**" />
     <Content Remove="client-app\**" />
+    <Content Remove="Publish\**" />
     <EmbeddedResource Remove="client-app\**" />
+    <EmbeddedResource Remove="Publish\**" />
     <None Remove="client-app\**" />
+    <None Remove="Publish\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -60,8 +64,6 @@
     <None Include="client-app\src\utils\index.js" />
     <None Include="client-app\src\utils\RequestApi.js" />
     <None Include="client-app\src\utils\scroll-to.js" />
-    <None Include="Publish\Publish\web.config" />
-    <None Include="Publish\web.config" />
   </ItemGroup>
 
   <ItemGroup>

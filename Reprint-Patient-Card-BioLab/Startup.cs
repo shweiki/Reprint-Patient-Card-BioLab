@@ -59,7 +59,6 @@ namespace Reprint_Patient_Card_BioLab
                 spa.Options.SourcePath = "client-app";
                 if (env.IsDevelopment())
                 {
-
                     spa.UseVueDevelopmentServer();
                 }
             });
