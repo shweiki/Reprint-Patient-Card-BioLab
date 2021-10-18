@@ -1,8 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Reprint_Patient_Card_BioLab</RootNamespace>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject>Reprint_Patient_Card_BioLab.Program</StartupObject>
+    <Win32Resource />
   </PropertyGroup>
 
   <ItemGroup>
@@ -34,8 +38,8 @@
 
   <ItemGroup>
     <None Include="client-app\babel.config.js" />
-    <None Include="client-app\dist\js\app.9243a833.js" />
-    <None Include="client-app\dist\js\app.9243a833.js.map" />
+    <None Include="client-app\dist\js\app.a49af969.js" />
+    <None Include="client-app\dist\js\app.a49af969.js.map" />
     <None Include="client-app\dist\js\chunk-vendors.30cfd2e6.js" />
     <None Include="client-app\dist\js\chunk-vendors.30cfd2e6.js.map" />
     <None Include="client-app\README.md" />
@@ -78,4 +82,5 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.2" />
   </ItemGroup>
 
+	
 </Project>
